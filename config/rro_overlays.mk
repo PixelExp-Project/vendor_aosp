@@ -23,7 +23,10 @@ PRODUCT_PACKAGES += \
     GVM-SBH-XL \
     GVM-URM-M \
     GVM-URM-L \
-    GVM-URM-R
+    GVM-URM-R \
+    GVM-PGM-ORCD \
+    GVM-PGM-OPRD \
+    GVM-PGM-PURP
 
 # QS Tile Styles
 PRODUCT_PACKAGES += \
