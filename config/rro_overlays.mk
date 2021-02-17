@@ -26,7 +26,9 @@ PRODUCT_PACKAGES += \
     GVM-URM-R \
     GVM-PGM-ORCD \
     GVM-PGM-OPRD \
-    GVM-PGM-PURP
+    GVM-PGM-PURP \
+    GVM-PGM-BLUE \
+    GVM-PGM-ROSE
 
 # QS Tile Styles
 PRODUCT_PACKAGES += \
