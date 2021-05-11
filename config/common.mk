@@ -193,6 +193,11 @@ TARGET_SUPPORTS_QUICK_TAP ?= false
 #    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 #endif
 
+# Navbar
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
+
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
 
