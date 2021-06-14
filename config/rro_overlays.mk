@@ -24,3 +24,13 @@ PRODUCT_PACKAGES += \
     GVM-URM-M \
     GVM-URM-L \
     GVM-URM-R
+
+# QS Tile Styles
+PRODUCT_PACKAGES += \
+    QStileCircleTrim \
+    QStileDefault \
+    QStileDualToneCircle \
+    QStileSquircleTrim \
+    QStileDottedCircle \
+    QStileWavey \
+    QStileOxygen
