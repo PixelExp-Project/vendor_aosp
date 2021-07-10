@@ -14,7 +14,8 @@ PRODUCT_PACKAGES += \
     FontKaiOverlay \
     FontRubikRubikOverlay \
     FontSamOverlay \
-    FontVictorOverlay
+    FontVictorOverlay \
+    FontOnePlusOverlay
 
 # GVM
 PRODUCT_PACKAGES += \

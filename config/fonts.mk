@@ -11,6 +11,21 @@ PRODUCT_PACKAGES += \
     GoogleSans-Medium.ttf \
     GoogleSans-Regular.ttf
 
+# Oneplus Sans family
+PRODUCT_PACKAGES += \
+    OnePlusSans-Black.ttf \
+    OnePlusSans-BlackItalic.ttf \
+    OnePlusSans-Bold.ttf \
+    OnePlusSans-BoldItalic.ttf \
+    OnePlusSans-Italic.ttf \
+    OnePlusSans-Light.ttf \
+    OnePlusSans-LightItalic.ttf \
+    OnePlusSans-Medium.ttf \
+    OnePlusSans-MediumItalic.ttf \
+    OnePlusSans-Regular.ttf \
+    OnePlusSans-Thin.ttf \
+    OnePlusSans-ThinItalic.ttf
+
 # Lustria family
 PRODUCT_PACKAGES += \
     Lustria-Regular.ttf
