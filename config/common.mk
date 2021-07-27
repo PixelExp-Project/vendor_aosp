@@ -132,6 +132,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     StitchImage
 
+# Apps
+PRODUCT_PACKAGES += \
+    OPScreenRecord
+
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/privapp-permissions-extra.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-extra.xml
+
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.bs_theme=true \
