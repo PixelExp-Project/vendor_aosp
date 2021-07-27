@@ -15,8 +15,8 @@
 //
 
 runtime_resource_overlay {
-    name: "GVM-SBH-M",
-    theme: "GVM-SBH-M",
+    name: "GVM-URM-LM",
+    theme: "GVM-URM-LM",
     sdk_version: "current",
     product_specific: true,
 }
