@@ -134,7 +134,8 @@ PRODUCT_PACKAGES += \
 
 # Apps
 PRODUCT_PACKAGES += \
-    OPScreenRecord
+    OPScreenRecord \
+    Firewall
 
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/privapp-permissions-extra.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-extra.xml
