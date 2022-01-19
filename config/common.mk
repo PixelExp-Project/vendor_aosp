@@ -36,12 +36,11 @@ endif
 
 # Some permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml \
     vendor/aosp/config/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml
 
 # Copy all custom init rc files
-$(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
-    $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/init/init.pixelexperience-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.pixelexperience-updater.rc
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
@@ -53,11 +52,11 @@ PRODUCT_COPY_FILES += \
 
 # Enable wireless Xbox 360 controller support
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
+    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_PRODUCT)/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # Enforce privapp-permissions whitelist
-#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-#    ro.control_privapp_permissions=enforce
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.control_privapp_permissions=enforce
 
 # Power whitelist
 PRODUCT_COPY_FILES += \

@@ -144,9 +144,12 @@ endif
 QCOM_SOONG_NAMESPACE ?= hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)
 PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
 
-# Add display-commonsys-intf to PRODUCT_SOONG_NAMESPACES for QSSI supported platforms
+# Add display-commonsys and display-commonsys-intf to PRODUCT_SOONG_NAMESPACES for QSSI supported platforms
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-    PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys-intf/display
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display \
+    vendor/qcom/opensource/display
 endif
 
 # Add data-ipa-cfg-mgr to PRODUCT_SOONG_NAMESPACES if needed
@@ -161,6 +164,5 @@ endif
 
 ifeq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
-    vendor/qcom/opensource/commonsys/system/bt/conf
+    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
 endif #TARGET_USE_QTI_BT_STACK
