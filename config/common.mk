@@ -26,9 +26,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.usb.config=adb
 else
 # Enable ADB authentication
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.usb.config=none
 
 # Disable extra StrictMode features on all non-engineering builds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
@@ -186,15 +188,15 @@ TARGET_INCLUDE_LIVE_WALLPAPERS ?= true
 TARGET_SUPPORTS_QUICK_TAP ?= false
 
 # Face Unlock
-#TARGET_FACE_UNLOCK_SUPPORTED ?= true
-#ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-#PRODUCT_PACKAGES += \
-#    FaceUnlockService
-#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-#    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-#endif
+TARGET_FACE_UNLOCK_SUPPORTED ?= true
+ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+PRODUCT_PACKAGES += \
+    FaceUnlockService
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+endif
 
 # Navbar
 PRODUCT_PACKAGES += \
