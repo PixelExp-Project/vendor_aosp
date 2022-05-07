@@ -111,6 +111,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     TouchGestures
 
+# Themed Icons
+PRODUCT_PACKAGES += \
+    CustomPixelLauncherOverlay
+
 # Prebuilt
 PRODUCT_PACKAGES += \
     ThemedIconsOverlay
