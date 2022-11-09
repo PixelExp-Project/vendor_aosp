@@ -101,8 +101,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common
 
 # TouchGestures
-#PRODUCT_PACKAGES += \
-#    TouchGestures
+PRODUCT_PACKAGES += \
+    TouchGestures
 
 # Themed Icons
 PRODUCT_PACKAGES += \
@@ -120,6 +120,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     NexusLauncherRelease
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    dalvik.vm.systemuicompilerfilter=speed
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
@@ -167,6 +170,10 @@ PRODUCT_PACKAGES += \
 	libtextclassifier_actions_suggestions_universal_model \
 	libtextclassifier_lang_id_model
 
+# Apps
+PRODUCT_PACKAGES += \
+    Aperture
+
 # Use gestures by default
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
@@ -183,15 +190,15 @@ TARGET_SUPPORTS_QUICK_TAP ?= false
 TARGET_SUPPORTS_CALL_RECORDING ?= true
 
 # Face Unlock
-#TARGET_FACE_UNLOCK_SUPPORTED ?= true
-#ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-#PRODUCT_PACKAGES += \
-#    FaceUnlockService
-#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-#    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-#endif
+TARGET_FACE_UNLOCK_SUPPORTED ?= true
+ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+PRODUCT_PACKAGES += \
+    FaceUnlockService
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+endif
 
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
@@ -206,7 +213,7 @@ $(call inherit-product, vendor/aosp/config/fonts.mk)
 $(call inherit-product, vendor/gapps/config.mk)
 
 # OTA
-#$(call inherit-product, vendor/aosp/config/ota.mk)
+$(call inherit-product, vendor/aosp/config/ota.mk)
 
 # RRO Overlays
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
