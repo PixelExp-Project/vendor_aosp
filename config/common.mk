@@ -8,10 +8,22 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.clientidbase=android-google
+
 else
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
+
 endif
+
+# BtHelper
+PRODUCT_PACKAGES += \
+    BtHelper
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.debug.alloc=0 \
@@ -118,7 +130,7 @@ PRODUCT_PACKAGES += \
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
+    SystemUIGoogle \
     NexusLauncherRelease
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -159,7 +171,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Google Play services configuration
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=android-google \
     ro.error.receiver.system.apps=com.google.android.gms \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
 
@@ -177,10 +188,6 @@ PRODUCT_PACKAGES += \
 # Use gestures by default
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
-
-# IORap app launch prefetching using Perfetto traces and madvise
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.iorapd.enable=true
 
 # Pixel customization
 TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
